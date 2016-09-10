@@ -1,6 +1,7 @@
 body {
   margin: 0;
 }
+
 header {
   background-color: #ffe558;
   height: 75px;
@@ -48,4 +49,6 @@ footer {
 
 #query-inner .category input {
   float: left;
+.container {
+    margin: 0 100px;
 }
