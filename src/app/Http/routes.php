@@ -11,6 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [
+    'uses' => 'HomeController@index',
+    'as' => 'home'
+]);
+
+Route::get('/search', [
+    'uses' => 'HomeController@search'
+]);
+
+Route::resource('post', 'PostController', [
+    'except' => ['index', 'create', 'store', 'show', 'edit', 'update', 'destroy']
+]);
