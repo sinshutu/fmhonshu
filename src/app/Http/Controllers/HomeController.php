@@ -9,13 +9,19 @@
 namespace App\Http\Controllers;
 
 
+use App\Http\Requests\Request;
+use App\Post;
+
 class HomeController extends Controller
 {
     public function index() {
         return view('index');
     }
 
-    public function search() {
-        return view('search');
+    public function search(Request $request) {
+        $categories = $request->categories;
+        $keywords = $request->keywords;
+        $posts = Post::findBySearchQuery($categories, $keywords);
+        return view('search', $posts);
     }
 }

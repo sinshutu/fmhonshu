@@ -1,5 +1,7 @@
 <?php namespace App;
 
+use Illuminate\Database\Eloquent\Model;
+
 class Post extends Model {
 
 	/**
@@ -32,11 +34,13 @@ class Post extends Model {
 	 * @param $minorCategories array
 	 * @param $keywords array
 	 */
-	public function findBySearchQuery($query, $minorCategories, $keywords) {
-//		$query->where('');
-//		foreach ($keywords as $keyword) {
-//			$query->where('title', 'like', $keyword);
-//		}
+	public function findBySearchQuery($minorCategories, $keywords) {
+		$query = DB::table($this->table);
+		$query->where('');
+		foreach ($keywords as $keyword) {
+			$query->where('title', 'like', $keyword);
+		}
+		return null;
 	}
 
 }

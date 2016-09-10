@@ -12,8 +12,10 @@ use App\Post;
 
 class PostController extends Controller
 {
-    public function show(Post $post)
+    public function show($postId)
     {
-        return view('posts.show', compact($post));
+        $post = Post::find($postId);
+        return view('posts.show')
+            ->with('post', $post);
     }
 }

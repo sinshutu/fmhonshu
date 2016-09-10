@@ -20,6 +20,4 @@ Route::get('/search', [
     'uses' => 'HomeController@search'
 ]);
 
-Route::resource('post', 'PostController', [
-    'except' => ['index', 'create', 'store', 'show', 'edit', 'update', 'destroy']
-]);
+Route::get('/posts/{postId}', [ 'uses' => 'PostController@show' ]);

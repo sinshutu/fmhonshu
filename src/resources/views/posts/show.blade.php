@@ -20,9 +20,7 @@
             }
 
             .container {
-                text-align: center;
-                display: table-cell;
-                vertical-align: middle;
+
             }
 
             .content {
@@ -30,15 +28,18 @@
                 display: inline-block;
             }
 
-            .title {
-                font-size: 96px;
-            }
         </style>
     </head>
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Laravel 5</div>
+                {{ $post->id }}
+                {{ $post->issuer_kind }}
+                {{ $post->title }}
+                {{ $post->circumstance }}
+                {{ $post->description }}
+                {{ $post->updated_at }}
+                {{ $post->created_at }}
             </div>
         </div>
     </body>
