@@ -26,9 +26,28 @@
         </div>
 
         <div class="query">
-            <div id="query-inner" class="container">
-                <div class="row">
-                    
+            <div id="query-inner">
+                <div id="category">
+                    <p>聞きたいことのカテゴリを選んでね</p>
+
+                    <div class="form-group">
+                    <table>
+                        @foreach ($categories as $category)
+                        <tr>
+                            <td>
+                                <div class="category">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" value="{{ $category->id }}" > {{ $category->name }}
+                                        </label>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </table>
+                    </div>
+
                 </div>
             </div>
         </div>

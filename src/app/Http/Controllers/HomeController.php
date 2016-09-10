@@ -8,13 +8,15 @@
 
 namespace App\Http\Controllers;
 
+use App\MinorCategory;
 use App\Post;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     public function index() {
-        return view('index');
+        $categories = MinorCategory::all();
+        return view('index')->with("categories", $categories);
     }
 
     public function search(Request $request) {

@@ -43,4 +43,9 @@ footer {
   height: 300px;
   border: 3px double #feec41;
   background: #fffef7;
+  padding: 25px 50px 25px 50px;
+}
+
+#query-inner .category input {
+  float: left;
 }
