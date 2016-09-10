@@ -16,7 +16,7 @@ phpnginx:
   volumes_from:
     - composerdata
   links:
-    - mysql
+    - mysql:ALIAS_MYSQL
   ports:
     - "80:80"
   volumes:
