@@ -8,9 +8,8 @@
 
 namespace App\Http\Controllers;
 
-
-use App\Http\Requests\Request;
 use App\Post;
+use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
@@ -20,8 +19,8 @@ class HomeController extends Controller
 
     public function search(Request $request) {
         $categories = $request->categories;
-        $keywords = $request->keywords;
+        $keywords = explode(' ', $request->q);
         $posts = Post::findBySearchQuery($categories, $keywords);
-        return view('search', $posts);
+        return view('search')->with("posts", $posts);
     }
 }

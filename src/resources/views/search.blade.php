@@ -38,7 +38,15 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">search</div>
+                @foreach ($posts as $post)
+                {{ $post->id }}
+                {{ $post->issuer_kind }}
+                {{ $post->title }}
+                {{ $post->circumstance }}
+                {{ $post->description }}
+                {{ $post->updated_at }}
+                {{ $post->created_at }}
+                @endforeach
             </div>
         </div>
     </body>

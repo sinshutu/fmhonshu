@@ -34,13 +34,14 @@ class Post extends Model {
 	 * @param $minorCategories array
 	 * @param $keywords array
 	 */
-	public function findBySearchQuery($minorCategories, $keywords) {
-		$query = DB::table($this->table);
-		$query->where('');
+	public static function findBySearchQuery($minorCategories, $keywords) {
+		$query = self::query();
 		foreach ($keywords as $keyword) {
-			$query->where('title', 'like', $keyword);
+			$query->where('title', 'like', '%'.$keyword.'%');
+			$query->orWhere('circumstance', 'like', '%'.$keyword.'%');
+			$query->orWhere('description', 'like', '%'.$keyword.'%');
 		}
-		return null;
+		return $query->get();
 	}
 
 }

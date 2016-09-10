@@ -38,7 +38,10 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">index</div>
+                <form action="search" method="get">
+                    <input type="text" name="q" />
+                    <input type="submit" value="検索" />
+                </form>
             </div>
         </div>
     </body>
