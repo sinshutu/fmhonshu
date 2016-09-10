@@ -6,6 +6,8 @@
         <script src="/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="/css/bootstrap.min.css">
         <link rel="stylesheet" href="/css/base.css">
+        @section('head')
+        @show
     </head>
     <body>
         <header>

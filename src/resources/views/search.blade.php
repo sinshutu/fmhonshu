@@ -1,53 +1,32 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Laravel</title>
+@extends('layouts.base')
+@section('title', '検索結果一覧')
 
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
-        <style>
-            html, body {
-                height: 100%;
-            }
+@section('head')
+<link rel="stylesheet" href="/css/search.css">
+@endsection
 
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                display: table;
-                font-weight: 100;
-                font-family: 'Lato';
-            }
-
-            .container {
-                text-align: center;
-                display: table-cell;
-                vertical-align: middle;
-            }
-
-            .content {
-                text-align: center;
-                display: inline-block;
-            }
-
-            .title {
-                font-size: 96px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="content">
-                @foreach ($posts as $post)
-                {{ $post->id }}
-                {{ $post->issuer_kind }}
-                {{ $post->title }}
-                {{ $post->circumstance }}
-                {{ $post->description }}
-                {{ $post->updated_at }}
-                {{ $post->created_at }}
-                @endforeach
-            </div>
-        </div>
-    </body>
-</html>
+@section('content')
+<div class="content">
+    <div>
+検索したカテゴリ:
+    </div>
+    <div>
+検索キーワード: {{ old('q') }}
+    </div>
+    @foreach ($posts as $post)
+    <div>
+    {{ $post->id }}
+    {{ $post->issuer_kind }}
+    {{ $post->title }}
+    {{ $post->circumstance }}
+    {{ $post->description }}
+    {{ $post->updated_at }}
+    {{ $post->created_at }}
+    </div>
+    @endforeach
+    戻るボタン
+戻るボタンbackground:#b3b3b3
+三角は#fffでお願いします
+</div>
+@endsection
