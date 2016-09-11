@@ -22,7 +22,7 @@
         {{ $post->description }}
     </p>
 
-    <button class="center-block">
+    <button class="center-block" onclick="history.back();">
         検索結果に戻る
     </button>
 </div>
