@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class MajorCategories extends Model {
+class MajorCategory extends Model {
 
 	/**
 	 * The database table used by the model.
@@ -24,5 +24,9 @@ class MajorCategories extends Model {
 	 * @var array
 	 */
 	protected $hidden = [];
+
+	public function minor_categories() {
+		return $this->hasMany('App\MinorCategory', 'major_category_id', 'id');
+	}
 
 }

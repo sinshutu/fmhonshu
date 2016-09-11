@@ -26,7 +26,7 @@ class MinorCategory extends Model {
 	protected $hidden = [];
 
 	public function posts(){
-		return $this->belongsToMany('post');
+		return $this->belongsToMany('App\Post', 'posts_categories', 'minor_category_id');
 	}
 
 }

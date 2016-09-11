@@ -9,14 +9,14 @@
 namespace App\Http\Controllers;
 
 use App\Post;
-use App\MinorCategory;
+use App\MajorCategory;
 use Illuminate\Http\Request;
 use DB;
 
 class HomeController extends Controller
 {
     public function index() {
-        $categories = MinorCategory::all();
+        $categories = MajorCategory::all();
         return view('index')->with("categories", $categories);
     }
 

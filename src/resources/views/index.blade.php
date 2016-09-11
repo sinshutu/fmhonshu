@@ -52,20 +52,31 @@
 
                         <div class="form-group">
                             <table>
-                                @for ($i = 0; $i < count($categories); $i++)
+                                @foreach ($categories as $majorCategory)
                                 <tr>
                                     <td>
-                                        <div class="category">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox" name="categories[]" value="{{ $categories[$i]->id }}"> {{ $i }} {{
-                                                    $categories[$i]->name }}
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </td>
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    {{ $majorCategory->name }}
+                                                </td>
+                                                <td>
+                                                    @foreach ($majorCategory->minor_categories as $minorCategory)
+                                                    <div class="category">
+                                                        <div class="checkbox">
+                                                            <label>
+                                                                <input type="checkbox" name="categories[]" value="{{ $minorCategory->id }}">{{
+                                                                $minorCategory->name }}
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    @endforeach
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </tr>
                                 </tr>
-                                @endfor
+                                @endforeach
                             </table>
                         </div>
 
