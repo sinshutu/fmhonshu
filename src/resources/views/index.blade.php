@@ -3,6 +3,19 @@
 
 @section('head')
 <link rel="stylesheet" href="/css/index.css">
+<script>
+    $(document).ready(function(){
+
+        $('#designer_button').click(function() {
+            $('#query-inner').removeClass('engineer-query').addClass('designer-query');
+        });
+
+        $('#engineer_button').click(function() {
+            $('#query-inner').removeClass('designer-query').addClass('engineer-query');
+        })
+
+    });
+</script>
 @endsection
 
 @section('content')
@@ -16,12 +29,12 @@
             <table id="issuer-table">
                 <tr>
                     <td>
-                        <div class="issuer">
+                        <div class="issuer designer" id="designer_button">
                             <img src="/img/index/button_designer.png"/>
                         </div>
                     </td>
                     <td>
-                        <div class="issuer">
+                        <div class="issuer engineer" id="engineer_button">
                             <img src="/img/index/button_engineer.png"/>
                         </div>
                     </td>
@@ -30,8 +43,8 @@
         </div>
 
         <div class="query">
-            <form>
-                <div id="query-inner">
+            <form action="search" method="get">
+                <div id="query-inner" class="arrow_box">
                     <div id="categories">
                         <p>聞きたいことのカテゴリを選んでね</p>
 
@@ -43,7 +56,7 @@
                                         <div class="category">
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="{{ $categories[$i]->id }}"> {{ $i }} {{
+                                                    <input type="checkbox" name="categories[]" value="{{ $categories[$i]->id }}"> {{ $i }} {{
                                                     $categories[$i]->name }}
                                                 </label>
                                             </div>

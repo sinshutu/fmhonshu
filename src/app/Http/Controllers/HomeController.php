@@ -20,6 +20,7 @@ class HomeController extends Controller
     }
 
     public function search(Request $request) {
+        $issuerKind = $request->issuer;
         $categories = $request->categories;
         $keywords = explode(' ', $request->q);
         $posts = Post::findBySearchQuery($categories, $keywords);
