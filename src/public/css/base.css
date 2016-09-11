@@ -1,20 +1,28 @@
 body {
-  margin: 0;
+    margin: 0;
+}
+.logo {
+    height:128px;
+    width:auto;
+    margin-left: 80px;
+    margin: 10px 0px 10px 50px;
 }
 
 header {
-  background-color: #ffe558;
-  height: 75px;
+    background-color: #ffe558;
 }
 
 footer {
-  background-color: #ffe558;
-  height: 75px;
-  color: white;
-  vertical-align: middle;
-  text-align: center;
+    background-color: #ffe558;
+    height: 75px;
+    color: white;
+    vertical-align: middle;
+    text-align: center;
+    position: fix;
+    bottom: 0px;
 }
-
+.container {
+}
 .content {
-  margin-bottom: 30px;
+    margin-bottom: 30px;
 }

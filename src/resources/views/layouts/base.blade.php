@@ -11,9 +11,12 @@
     </head>
     <body>
         <header>
+<img class="logo" src="img/logo.png" alt="">
         </header>
         <div class="container">
-            @yield('content')
+            <div class="inner">
+                @yield('content')
+            </div>
         </div>
         <footer>
             <div class="bottom">
