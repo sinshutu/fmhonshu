@@ -20,7 +20,7 @@ class HomeController extends Controller
     public function search(Request $request) {
         $issuerKind = $request->issuer;
         $categories = $request->categories;
-        $keywords = explode(' ', $request->q);
+        $keywords = explode(' ', $request->keywords);
         // 最大10件だけ返す
         $posts = Post::findBySearchQuery($categories, $keywords)
             ->splice(0,10);
