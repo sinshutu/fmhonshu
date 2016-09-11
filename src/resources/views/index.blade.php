@@ -57,10 +57,10 @@
                                     <td>
                                         <table>
                                             <tr>
-                                                <td>
+                                                <td style="width: 100px; padding-left: 10px; border-right: 1px #b9b640 solid;">
                                                     {{ $majorCategory->name }}
                                                 </td>
-                                                <td>
+                                                <td style="padding-left: 10px;">
                                                     @foreach ($majorCategory->minor_categories as $minorCategory)
                                                     <div class="category">
                                                         <div class="checkbox">
