@@ -1,0 +1,21 @@
+.title {
+   background-color: #fff89f;
+}
+.dots {
+    border:none;
+    border-top:dashed 1px #CCC;
+    height:1px;
+    color:#FFFFFF;
+    margin: 0 6 0 6;
+}
+p {
+    border-style: solid; border-color: #fff793;
+}
+
+button {
+    height: 50px;
+    width: 150px;
+    background-color: white;
+    border-style: solid; border-color: #fff793;
+    margin-top: 30px;
+}

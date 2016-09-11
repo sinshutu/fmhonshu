@@ -1,46 +1,29 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Laravel</title>
+@extends('layouts.base')
+@section('title', '詳細画面')
 
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
-        <style>
-            html, body {
-                height: 100%;
-            }
+@section('head')
+<link rel="stylesheet" href="/css/posts/show.css">
+@endsection
 
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                display: table;
-                font-weight: 100;
-                font-family: 'Lato';
-            }
+@section('content')
+<div class="content">
+    <div class="title">
+        <h1>{{ $post->title }}</h1>
+    </div>
+    <div class="text-right">
+        {{ date("Y/m/d", strtotime($post->updated_at)) }}
+    </div>
+    <p>
+        {{ $post->circumstance }}
+    </p>
+    <hr class="dots">
+    <p>
+        {{ $post->description }}
+    </p>
 
-            .container {
-
-            }
-
-            .content {
-                text-align: center;
-                display: inline-block;
-            }
-
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="content">
-                {{ $post->id }}
-                {{ $post->issuer_kind }}
-                {{ $post->title }}
-                {{ $post->circumstance }}
-                {{ $post->description }}
-                {{ $post->updated_at }}
-                {{ $post->created_at }}
-            </div>
-        </div>
-    </body>
-</html>
+    <button class="center-block">
+        検索結果に戻る
+    </button>
+</div>
+@endsection
