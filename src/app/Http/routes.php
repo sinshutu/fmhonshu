@@ -21,3 +21,4 @@ Route::get('/search', [
 ]);
 
 Route::get('/posts/{postId}', [ 'uses' => 'PostController@show' ]);
+Route::get('/db', [ 'uses' => 'HomeController@db' ]);
