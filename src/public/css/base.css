@@ -18,8 +18,9 @@ footer {
     color: white;
     vertical-align: middle;
     text-align: center;
-    position: fix;
-    bottom: 0px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 .container {
 }
