@@ -42,20 +42,33 @@ class Post extends Model {
 		if ($minorCategories == null) {
 			$minorCategories = [];
 		}
-		$q = '';
+		$sql = "SELECT distinct(t1.id) FROM posts AS t1 LEFT JOIN posts_categories AS t2 ON t1.id = t2.post_id WHERE issuer_kind = ".$issuer;
+		$arr = implode(',',$minorCategories);
+		if (count($minorCategories)>0) {
+			$sql .= "  AND minor_category_id IN (".$arr.")";
+		}
+		$q=null;
 		for ($i = 0; $i < count($keywords); $i++) {
 			$keyword = $keywords[$i];
 			if ($i > 0) {
-				$q .= ' or ';
+				$q .= ' and ';
 			}
-			$q .= '(';
-			$q .= 'title like "%'.$keyword.'%" or ';
-			$q .= 'circumstance like "%'.$keyword.'%" or ';
-			$q .= 'description like "%'.$keyword.'%"';
-			$q .= ')';
+
+			if (strlen($keyword)>0) {
+				$q .= 'title like "%'.$keyword.'%" or ';
+			}
+			if (strlen($keyword)>0) {
+				$q .= 'circumstance like "%' . $keyword . '%" or ';
+			}
+			if (strlen($keyword)>0) {
+				$q .= 'description like "%'.$keyword.'%"';
+			}
+
 		}
-		$arr = implode(',',$minorCategories);
-		$r = DB::select(DB::raw("SELECT distinct(t1.id) FROM posts AS t1 LEFT JOIN posts_categories AS t2 ON t1.id = t2.post_id WHERE issuer_kind = ".$issuer." AND minor_category_id IN (".$arr.") AND ".$q));
+		if ($q) {
+			$sql .= " and " . $q;
+		}
+		$r = DB::select(DB::raw($sql));
 
 		$ids = [];
 		foreach ($r as $res) {
