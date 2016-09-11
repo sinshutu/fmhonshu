@@ -15,6 +15,7 @@ class PostController extends Controller
     public function show($postId)
     {
         $post = Post::find($postId);
+        dd($post->minorCategories);
         return view('posts.show')
             ->with('post', $post);
     }

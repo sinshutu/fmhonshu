@@ -32,6 +32,9 @@
           </div>
           <div class="card-footer text-muted text-left">
             カテゴリ:
+              @foreach ($post->minorCategories as $cat)
+              {{ $cat->name }}&nbsp;&nbsp;
+              @endforeach
           </div>
         </div>
     @endforeach
