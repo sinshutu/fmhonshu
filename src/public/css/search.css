@@ -12,3 +12,11 @@
 .card > .card-header {
     background-color: #fff9c4;
 }
+
+.card h2 a {
+    text-decoration: none;
+    color: #555555;
+}
+.card h2 a:link {  color: #555555;  }
+.card h2 a:hover {  color: #555555;  }
+.card h2 a:active {  color: #555555;  }

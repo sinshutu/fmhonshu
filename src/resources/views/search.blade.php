@@ -23,7 +23,7 @@
         </div>
         <div class="card text-xs-center">
           <div class="card-header text-left">
-            <h2>{{ $post->title }}</h4>
+            <h2><a href="/posts/{{ $post->id }}">{{ $post->title }}</a></h2>
           </div>
           <div class="card-block">
             <p class="card-text text-left">
