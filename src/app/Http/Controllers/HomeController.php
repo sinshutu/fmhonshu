@@ -24,7 +24,7 @@ class HomeController extends Controller
         $categories = $request->categories;
         $keywords = explode(' ', $request->keywords);
         // 最大10件だけ返す
-        $posts = Post::findBySearchQuery($categories, $keywords)
+        $posts = Post::findBySearchQuery($issuerKind, $categories, $keywords)
             ->splice(0,10);
 
         // 検索結果をフラッシュに保存
