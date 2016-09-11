@@ -8,10 +8,12 @@
 
         $('#designer_button').click(function() {
             $('#query-inner').removeClass('engineer-query').addClass('designer-query');
+            query_form.issuer.value = 0;
         });
 
         $('#engineer_button').click(function() {
             $('#query-inner').removeClass('designer-query').addClass('engineer-query');
+            query_form.issuer.value = 1;
         })
 
     });
@@ -43,7 +45,7 @@
         </div>
 
         <div class="query">
-            <form action="search" method="get">
+            <form name="query_form" action="search" method="get">
                 <div id="query-inner" class="arrow_box">
                     <div id="categories">
                         <p>聞きたいことのカテゴリを選んでね</p>
@@ -76,6 +78,7 @@
 
                         <div id="keywords-form" class="form-group">
                             <input type="text" class="form-control" name="keywords"/>
+                            <input type="hidden" name="issuer" value="" />
                             <button type="submit" id="submit" class="btn btn-default">聞いてみる！</button>
                         </div>
                     </div>
